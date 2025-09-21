@@ -1,0 +1,284 @@
+/* Importa a fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Define as cores e sombras em variáveis CSS para fácil manutenção */
+:root {
+    --bg-dark: #3e2723;
+    --bg-light: #f5f5f5;
+    --card-bg: #fff;
+    --text-color: #333;
+    --text-light: #f2f2f2;
+    --border-color: #e0e0e0;
+    --box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Reseta as margens e paddings padrão do navegador e define o box-sizing */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-color);
+}
+
+/* O Flexbox organiza o menu lateral e o conteúdo principal lado a lado */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Estilos do Menu Lateral (Sidebar) */
+.sidebar {
+    width: 250px;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.sidebar-header {
+    margin-bottom: 20px;
+}
+
+.sidebar-header h3 {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+}
+
+.sidebar-nav li {
+    margin-bottom: 10px;
+}
+
+.sidebar-nav li a, .sidebar-footer a {
+    display: block;
+    padding: 15px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-light);
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-nav li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-nav li.active a {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: 700;
+}
+
+.sidebar-nav a i, .sidebar-footer a i {
+    margin-right: 10px;
+}
+
+/* Estilos do Conteúdo Principal */
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.main-header h2 {
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.header-actions button {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-left: 15px;
+    color: #555;
+    transition: color 0.3s;
+}
+
+.header-actions button:hover {
+    color: #000;
+}
+
+/* Estilos dos Cartões de Resumo (usando CSS Grid) */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+.card h4 {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.card p {
+    font-size: 2em;
+    font-weight: 700;
+}
+
+/* Estilos da Tabela de Reservas e Hóspedes */
+.recent-reservations {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-box i {
+    position: absolute;
+    left: 10px;
+    color: #888;
+}
+
+.search-box input {
+    padding: 10px 10px 10px 35px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    width: 250px;
+}
+
+.reservations-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.reservations-table th, .reservations-table td {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.reservations-table th {
+    font-weight: 500;
+    color: #777;
+}
+
+.reservations-table td {
+    color: #555;
+}
+
+/* Estilização para as cores dos status de Reservas */
+.reservations-table td.status-active {
+    color: #4CAF50;
+    font-weight: 500;
+}
+.reservations-table td.status-pending {
+    color: #ff9800;
+    font-weight: 500;
+}
+.reservations-table td.status-cancelled {
+    color: #f44336;
+    font-weight: 500;
+}
+.reservations-table td.status-finished {
+    color: #2196F3;
+    font-weight: 500;
+}
+
+/* Estilos para os botões de filtro da página de Hóspedes */
+.action-buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-red {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-green {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-add {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* Estilos para as bolinhas de status na tabela de Hóspedes */
+.reservations-table td.status-green {
+    background-color: #4CAF50;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin: auto;
+}
+
+.reservations-table td.status-red {
+    background-color: #f44336;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin: auto;
+}
+
+/* Estilos específicos para a tabela de Financeiro */
+.reservations-table td.finance-value-green {
+    color: #4CAF50;
+    font-weight: 500;
+}
+
+.reservations-table td.finance-actions i {
+    color: #555;
+    font-size: 1.2em;
+    margin-left: 10px;
+    cursor: pointer;
+}
