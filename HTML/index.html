@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pensão Rosilene Baterex | Reservas</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Pensão Rosilene Baterex | Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -15,8 +15,8 @@
             </div>
             <nav class="sidebar-nav">
                 <ul>
-                    <li><a href="index.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
-                    <li class="active"><a href="reservas.html"><i class="fas fa-calendar-alt"></i> Reservas</a></li>
+                    <li class="active"><a href="index.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
+                    <li><a href="reservas.html"><i class="fas fa-calendar-alt"></i> Reservas</a></li>
                     <li><a href="hospedes.html"><i class="fas fa-users"></i> Hóspedes</a></li>
                     <li><a href="financeiro.html"><i class="fas fa-dollar-sign"></i> Financeiro</a></li>
                 </ul>
@@ -27,12 +27,35 @@
 
         <main class="main-content">
             <header class="main-header">
-                <h2>Reservas</h2>
+                <h2>Pensão Rosilene Baterex</h2>
+                <div class="header-actions">
+                    <button><i class="fas fa-sync-alt"></i></button>
+                    <button><i class="fas fa-plus"></i></button>
+                </div>
             </header>
-            
+
+            <section class="summary-cards">
+                <div class="card">
+                    <h4>Check-ins</h4>
+                    <p>1</p>
+                </div>
+                <div class="card">
+                    <h4>Check-outs</h4>
+                    <p>7</p>
+                </div>
+                <div class="card">
+                    <h4>Reservas</h4>
+                    <p>5</p>
+                </div>
+                <div class="card">
+                    <h4>Canceladas</h4>
+                    <p>2</p>
+                </div>
+            </section>
+
             <section class="recent-reservations">
                 <div class="table-header">
-                    <h4>Lista de Reservas</h4>
+                    <h4>Reservas Recentes</h4>
                     <div class="search-box">
                         <i class="fas fa-search"></i>
                         <input type="text" placeholder="Pesquisar...">
@@ -46,7 +69,6 @@
                             <th>Check-in</th>
                             <th>Check-out</th>
                             <th>Diárias</th>
-                            <th>Valor</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -57,35 +79,23 @@
                             <td>20/08</td>
                             <td>22/08</td>
                             <td>2</td>
-                            <td>R$ 400</td>
-                            <td class="status-active">ATIVA</td>
+                            <td>ATIVA</td>
                         </tr>
                         <tr>
-                            <td>Maria Ribeiro</td>
+                            <td>José Carlos</td>
                             <td>202</td>
                             <td>21/08</td>
                             <td>25/08</td>
                             <td>4</td>
-                            <td>R$ 640</td>
-                            <td class="status-pending">PENDENTE</td>
-                        </tr>
-                         <tr>
-                            <td>Lana Pereira</td>
-                            <td>103</td>
-                            <td>24/08</td>
-                            <td>26/08</td>
-                            <td>2</td>
-                            <td>R$ 380</td>
-                            <td class="status-cancelled">CANCELADA</td>
+                            <td>PENDENTE</td>
                         </tr>
                         <tr>
-                            <td>João Pontes</td>
-                            <td>301</td>
+                            <td>José Carlos</td>
+                            <td>202</td>
+                            <td>21/08</td>
                             <td>25/08</td>
-                            <td>29/08</td>
                             <td>4</td>
-                            <td>R$ 640</td>
-                            <td class="status-finished">FINALIZADA</td>
+                            <td>CANCELADA</td>
                         </tr>
                     </tbody>
                 </table>

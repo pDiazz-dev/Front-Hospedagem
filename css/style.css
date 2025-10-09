@@ -282,3 +282,11 @@ body {
     margin-left: 10px;
     cursor: pointer;
 }
+
+.dialogElements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
