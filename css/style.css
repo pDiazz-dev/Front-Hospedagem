@@ -9,7 +9,7 @@
     --text-color: #333;
     --text-light: #f2f2f2;
     --border-color: #e0e0e0;
-    --box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    --box-shadow: 0 4px 8px #0000001a;
 }
 
 /* Reseta as margens e paddings padrão do navegador e define o box-sizing */
@@ -283,10 +283,3 @@ body {
     cursor: pointer;
 }
 
-.dialogElements {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}

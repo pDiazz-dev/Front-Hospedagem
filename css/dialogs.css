@@ -1,0 +1,88 @@
+
+
+
+.dialHosp {
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    max-width: 90vw;
+    background-color: #552323;
+    border: none;
+    border-radius: 12px;
+    transition: ease-in 0.3s;
+    box-shadow: 0px 2px 7px black;
+}
+
+.dialHosp::backdrop{
+    backdrop-filter: blur(3px);
+    background-color: #302f2f69;
+
+}
+
+.dialogElements {
+    display: flex;
+    justify-content: center;
+    width: 100%; 
+    padding: 70px;
+    color: white; 
+}
+
+.dialogElements form {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+}
+
+.dialogElements label {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+.dialogElements input[type="text"] {
+    padding: 10px 15px;
+    border: 1px solid #00000052;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+
+.dialogElements input[type="button"] {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+  
+}
+
+#saveBtn{
+    background-color: #ffffff;
+    margin-bottom:px ;
+      margin-top: 40px;
+}
+
+#saveBtn:hover{
+    background-color: #F5E6C4;
+    transition: ease-out 0.2s;
+    transform: scale(1.03);
+}
+
+#outDialog{
+    background-color: rgb(255, 255, 255);
+      margin-top: 20px;
+}
+
+#outDialog:hover{
+    background-color: #a72424;
+    transition: ease-out 0.2s;
+    color: white;
+    transform: scale(1.03);
+}
