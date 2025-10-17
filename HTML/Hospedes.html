@@ -6,6 +6,7 @@
     <title>Pensão Rosilene Baterex | Hóspedes</title>
     <link rel="stylesheet" href="../css/dialogs.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/getErr.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -44,14 +45,16 @@
                         <div class="dialogElements">
                             <form action="">
                                 <label for="">Nome do hospede</label>
-                                <input type="text" name="" id="nomeHospede" placeholder="Nome Completo">
-
+                                <input type="text" name="" id="nomeHospede" placeholder="Nome Completo" autocomplete="off">
+                                
                                 <label for="">Telefone</label>
-                                <input type="text" name="" id="telefoneHospede" placeholder="(00) 00000-0000">
+                                <input type="text" name="" id="telefoneHospede" placeholder="(00) 00000-0000" autocomplete="off">
+                            <div class="personalNumbQuantErr"><p>Verifique se o número está correto!</p></div>
+
 
                                 <label for="">CPF</label>
-                                <input type="text" name="" id="cpfHospede" placeholder="000.000.000-00">
-
+                                <input type="text" name="" id="cpfHospede" placeholder="000.000.000-00" autocomplete="off">
+                            <div class="personalCpfQuantErr"><p>Verifique se o CPF está correto!</p></div>
                                 <input type="button" value="Adicionar" id="saveBtn">
                                 <input type="button" value="Cancelar" id="outDialog">
                             </form>
