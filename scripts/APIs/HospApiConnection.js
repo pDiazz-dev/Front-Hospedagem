@@ -49,5 +49,10 @@ CadNewHospede.addEventListener("click", () =>{
             alert("Hóspede já cadastrado!");
         
     }})
+    .then(({ status, body }) => {
+        if (status === 400) {
+            alert("Verifique os campos e tente novamente!");
+        
+    }})
 });
 
