@@ -53,6 +53,7 @@ CadNewHospede.addEventListener("click", () =>{
         if (status === 400) {
             alert("Verifique os campos e tente novamente!");
         
-    }})
+    }}
+)
 });
 
