@@ -1,3 +1,4 @@
+// Função para formatar nome
 function formatarNomeCompleto(nome) {
   const excecoes = ['de', 'da', 'do', 'dos', 'das', 'e'];
   
@@ -11,48 +12,98 @@ function formatarNomeCompleto(nome) {
 }
 
 
-const CadNewHospede = document.getElementById('saveBtn');
-CadNewHospede.addEventListener("click", () =>{
-    let nome = document.getElementById('nomeHospede').value.trim();
-    let telefone = document.getElementById('telefoneHospede').value.replace(/\D/g, '');
-    let cpf = document.getElementById('cpfHospede').value.replace(/\D/g, '');
 
-    if(telefone.toString().length != 11 || isNaN(telefone)){
-        document.querySelector('.personalNumbQuantErr').style.display = 'block';
-        return;
-    }
+// Máscara CPF no input
+const cpfInput = document.getElementById('cpfHospede');
+if (cpfInput) {
+  cpfInput.addEventListener('input', function () {
+    this.value = this.value
+      .replace(/\D/g, '')
+      .replace(/^(\d{3})(\d)/, '$1.$2')
+      .replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3')
+      .replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4')        
+      .slice(0, 14);
+  });
+}
+
+
+
+// Máscara Telefone no input
+const telefoneInput = document.getElementById('telefoneHospede');
+if (telefoneInput) {
+  telefoneInput.addEventListener('input', function () {
+    this.value = this.value
+        .replace(/\D/g, '')
+        .replace(/^(\d{2})(\d)/, '($1) $2')
+        .replace(/(\d{5})(\d)/, '$1-$2')
+        .slice(0, 15);
+  });
+}
+
+
+
+// Evento de clique para salvar novo hóspede + validação dos campos
+const CadNewHospede = document.getElementById('saveBtn');
+CadNewHospede.addEventListener("click", () => {
+  let nome = document.getElementById('nomeHospede').value.trim();
+  let telefone = document.getElementById('telefoneHospede').value;
+  let cpf = document.getElementById('cpfHospede').value
+  if(telefone.length != 15){
+    document.querySelector('.personalNumbQuantErr').style.display = 'block';
+    return;
+  }
+
+  if(cpf.length != 14){
+    document.querySelector('.personalCpfQuantErr').style.display = 'block';
+    return;
+  }
+  if(nome.length <= 3){
+    alert("O nome deve conter mais de 3 caracteres!");
+    return;
+  }
     
 
-    if(cpf.toString().length != 11 || isNaN(cpf)){
-        document.querySelector('.personalCpfQuantErr').style.display = 'block';
-        return;
+
+//Conexão com a API para salvar novo hóspede
+  nome = formatarNomeCompleto(nome);
+
+  fetch(`${config.API_URL}/new-guest/sigin-guest`, {
+      method: "POST",
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ nome, telefone, cpf })
+  })
+
+  // Tratamento de respostas da API
+  .then(async (response) => {
+    const body = null;
+    try {
+        body = await response.json();
+    } catch (error) {
+        console.warn("Resposta da API não é um JSON válido:", error);
     }
+    return {
+        status: response.status,
+        body: body
+    };
+  }
+  )
+  .then(({ status, body }) => {
+      if (status === 500) {
+          alert("Hóspede já cadastrado!");
+        return;
+      }
+      if (status === 400) {
+          alert("Verifique os campos e tente novamente!");
+          return;
+      }
 
-    nome = formatarNomeCompleto(nome);
-
-
-    fetch(`${config.API_URL}/new-guest/sigin-guest`, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ nome, telefone, cpf })
-    })
-    .then(response =>
-        response.json().then(data => ({
-            status: response.status,
-            body: data
-        }))
-    )
-    .then(({ status, body }) => {
-        if (status === 500) {
-            alert("Hóspede já cadastrado!");
-        
-    }})
-    .then(({ status, body }) => {
-        if (status === 400) {
-            alert("Verifique os campos e tente novamente!");
-        
-    }})
+      if (status === 200) {
+      alert("Hóspede cadastrado com sucesso!");
+      window.location.reload();
+      return;
+  }
+  });
+  
 });
-
