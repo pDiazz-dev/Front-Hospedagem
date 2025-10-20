@@ -61,7 +61,22 @@ CadNewHospede.addEventListener("click", () => {
     alert("O nome deve conter mais de 3 caracteres!");
     return;
   }
-    
+
+
+
+    then(async (response) => {
+     let body = null;
+     try {
+    body = await response.json();
+  } catch (err) {
+    console.warn("Resposta não era JSON válido:", err);
+  }
+
+  return {
+    status: response.status,
+    body: body
+  };
+})
 
 
 //Conexão com a API para salvar novo hóspede
