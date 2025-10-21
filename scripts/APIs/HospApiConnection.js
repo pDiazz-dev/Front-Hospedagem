@@ -44,6 +44,28 @@ if (telefoneInput) {
 
 // Evento de clique para salvar novo hóspede + validação dos campos
 const CadNewHospede = document.getElementById('saveBtn');
+let alertSucessBox = document.querySelector('.toastNotification');
+
+function createToastNotification(type, text, icon, title) {
+  const newToast = document.createElement('div');
+  newToast.innerHTML = `
+  <div class="toast ${type}">
+  <i class="${icon}"></i>
+  <div class="content">
+  <div class="title">${title}</div>
+  <span>${text}</span>
+  </div>
+  <i class="fa-solid fa-x" 
+  onclick = "(this.parentElement).remove()"></i>
+  </div>`;
+  alertSucessBox.appendChild(newToast); 
+  setTimeout(() => {
+    alertSucessBox.removeChild(newToast);
+  }, 4000);
+}
+
+
+
 CadNewHospede.addEventListener("click", () => {
   let nome = document.getElementById('nomeHospede').value.trim();
   let telefone = document.getElementById('telefoneHospede').value;
@@ -62,21 +84,8 @@ CadNewHospede.addEventListener("click", () => {
     return;
   }
 
+  
 
-
-    then(async (response) => {
-     let body = null;
-     try {
-    body = await response.json();
-  } catch (err) {
-    console.warn("Resposta não era JSON válido:", err);
-  }
-
-  return {
-    status: response.status,
-    body: body
-  };
-})
 
 
 //Conexão com a API para salvar novo hóspede
@@ -104,6 +113,9 @@ CadNewHospede.addEventListener("click", () => {
     };
   }
   )
+  
+  
+  
   .then(({ status, body }) => {
       if (status === 500) {
           alert("Hóspede já cadastrado!");
@@ -115,8 +127,14 @@ CadNewHospede.addEventListener("click", () => {
       }
 
       if (status === 200) {
-      alert("Hóspede cadastrado com sucesso!");
-      window.location.reload();
+      
+      let type = 'Sucesso';
+  let text = 'Hóspede cadastrado com sucesso! Atualizando a página...';
+  let icon = 'fa-solid fa-circle-check';
+  let title = 'Sucesso';
+  createToastNotification(type, text, icon, title);
+      outDialog.click();
+      listarHospedes();
       return;
   }
   });

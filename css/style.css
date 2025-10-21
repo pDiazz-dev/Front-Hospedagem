@@ -282,11 +282,3 @@ body {
     margin-left: 10px;
     cursor: pointer;
 }
-
-.head-table{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    
-}
