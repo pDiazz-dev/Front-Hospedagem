@@ -59,6 +59,8 @@
                             <form action="">
                                 <label for="">Nome do hospede</label>
                                 <input type="text" name="" id="nomeHospede" placeholder="Nome Completo" autocomplete="off" required>
+                            <div class="personalNameQuantErr"><p>O nome não pode conter números!
+                            </p></div>
                                 
                                 <label for="">Telefone</label>
                                 <input type="text" name="" id="telefoneHospede" placeholder="(00) 00000-0000" autocomplete="off" required>
@@ -70,9 +72,18 @@
                             <div class="personalCpfQuantErr"><p>Verifique se o CPF está correto!</p></div>
                                 <input type="button" value="Adicionar" id="saveBtn">
                                 <input type="button" value="Cancelar" id="outDialog">
+
+
                             </form>
                         </div>
                     </dialog>
+                                                    <dialog  id="confirmClose" class="cancel">
+                                    <div class="confirmDialogCancel">
+                                        <p>Tem certeza que deseja cancelar o cadastro?</p>
+                                        <input type="button" value="Sim" id="confirmCancel">
+                                        <input type="button" value="Não" id="denyCancel">
+                                    </div>
+                                </dialog>
                 </div>
                 <table class="head-table">
                     <thead >

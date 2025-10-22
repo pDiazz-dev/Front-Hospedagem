@@ -16,6 +16,7 @@
     --color: #d4a540;
     background-color:#3e2723;
     animation: show 0.3s ease 1 forwards;
+;
 }
 .toast i{
     display: flex;
@@ -26,6 +27,9 @@
 
 .fa-solid.fa-circle-check{
     color: #20cc14;
+}
+.fa-solid.fa-circle-xmark{
+    color: #ff0000;
 }
 
 .fa-solidfa-x:hover{

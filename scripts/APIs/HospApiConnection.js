@@ -84,7 +84,17 @@ CadNewHospede.addEventListener("click", () => {
     return;
   }
 
-  
+  if (nome === "" || telefone === "" || cpf === "") {
+          let type = 'Algo deu errado!';
+          let text = 'Verifique os campos e tente novamente!';
+          let icon = 'fa-solid fa-circle-xmark';
+          let title = 'Algo deu errado!';
+          createToastNotification(type, text, icon, title);
+ }
+  if (/\d/.test(nome)) {
+    document.querySelector('.personalNameQuantErr').style.display = 'block';
+    return;
+  }
 
 
 
@@ -118,22 +128,22 @@ CadNewHospede.addEventListener("click", () => {
   
   .then(({ status, body }) => {
       if (status === 500) {
-          alert("Hóspede já cadastrado!");
+
+        let type = 'Erro';
+  let text = 'Esse hóspede já está cadastrado!';
+  let icon = 'fa-solid fa-circle-xmark';
+  let title = 'Ocorreu um erro!';
+  createToastNotification(type, text, icon, title);
         return;
-      }
-      if (status === 400) {
-          alert("Verifique os campos e tente novamente!");
-          return;
       }
 
       if (status === 200) {
-      
+        
       let type = 'Sucesso';
   let text = 'Hóspede cadastrado com sucesso! Atualizando a página...';
   let icon = 'fa-solid fa-circle-check';
   let title = 'Sucesso';
   createToastNotification(type, text, icon, title);
-      outDialog.click();
       listarHospedes();
       return;
   }

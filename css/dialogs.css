@@ -86,8 +86,64 @@
     color: white;
     transform: scale(1.03);
 }
+
+/*-------------------- Dialog de Confirmação de Cancelamento-------------------- */
+
+#confirmClose {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    max-width: 90vw;
+    background-color: #331515;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0px 2px 7px black;
+    padding: 30px 20px;
+    text-align: center;
+    color: white;
+}
+#confirmClose::backdrop {
+    backdrop-filter: blur(3px);
+    background-color: #302f2f69;
+}
+#confirmClose p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+}
+#confirmCancel,
+#denyCancel {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.95em;
+    margin: 0 10px;
+    transition: all 0.2s ease-in-out;
+}
+#confirmCancel {
+    background-color: #ffffff;
+    color: #000;
+}
+#confirmCancel:hover {
+    background-color: #a72424;
+    color: white;
+    transform: scale(1.05);
+}
+#denyCancel {
+    background-color: #ffffff;
+    color: #000;
+}
+#denyCancel:hover {
+    background-color: #F5E6C4;
+    transform: scale(1.05);
+}
+
+
  /* -------------------- Mesangens de Erro do input-------------------- */
 .personalNumbQuantErr,
+.personalNameQuantErr,
 .personalCpfQuantErr{
     display: none;
     color: #ffffff;
@@ -95,3 +151,5 @@
     padding: 5px 10px;
     font-size: 14px;
 }
+
+
