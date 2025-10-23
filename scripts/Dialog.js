@@ -47,9 +47,4 @@ const editDialog = document.querySelector(".editGuest");
     let GuestViewInfoName = document.getElementById("editNomeHospede");
     let GuestViewInfoCpf = document.getElementById("editCpfHospede");
     let GuestViewInfoPhone = document.getElementById("editTelefoneHospede");
-    // Preencher os campos com as informações do hóspede selecionado
-    GuestViewInfoName.value = ${hospede.nome};
-    GuestViewInfoCpf.value = ${hospede.cpf};
-    GuestViewInfoPhone.value = ${hospede.telefone};
-    editDialog.showModal();
 })
