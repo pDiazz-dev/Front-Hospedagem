@@ -110,19 +110,19 @@ CadNewHospede.addEventListener("click", () => {
   })
 
   // Tratamento de respostas da API
-  .then(async (response) => {
-    const body = null;
-    try {
-        body = await response.json();
-    } catch (error) {
-        console.warn("Resposta da API não é um JSON válido:", error);
+    .then(async (response) => {
+      const body = null;
+      try {
+          body = await response.json();
+      } catch (error) {
+          console.warn("Resposta da API não é um JSON válido:", error);
+      }
+      return {
+          status: response.status,
+          body: body
+      };
     }
-    return {
-        status: response.status,
-        body: body
-    };
-  }
-  )
+    )
   
   
   

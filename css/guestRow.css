@@ -1,6 +1,47 @@
-.head-table {
-    display: table;
-    padding-right: 50px;
-    align-items: center;
-    space-between: 10px;
+.tables{
+    width: 100%;
+}
+
+.tables table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tables th, .tables td{
+    display: table-cell;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    
+}
+
+.editHospBtn{
+    background-color: transparent;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.editHospBtn:hover{
+    color: #2e6483;
+    transform: scale(1.2);
+    background-color: #00000028;
+    border-radius: 50%;
+}
+.fa-solid.fa-trash-can{
+    color: #000000;
+    cursor: pointer;
+}
+.fa-solid.fa-trash-can:hover{
+    color: #ff0000;
+    transform: scale(1.2);
+}
+
+.fa-solid.fa-pen-to-square{
+    color: #000000;
+    cursor: pointer;
+}
+.fa-solid.fa-pen-to-square:hover{
+    color: #2e6483;
+    transform: scale(1.2);
 }

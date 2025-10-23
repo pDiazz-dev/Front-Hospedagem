@@ -20,6 +20,8 @@ async function listarHospedes() {
             <td>${hospede.nome}</td>
             <td>${hospede.cpf}</td>
             <td>${hospede.telefone}</td>
+            <td><i class="fa-solid fa-pen-to-square penEdit"></i></td>
+            <td><i class="fa-solid fa-trash-can"></i></td>
         `;
         tabelaBody.appendChild(row);
     });

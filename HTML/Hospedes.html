@@ -51,9 +51,10 @@
 
                     </div>
                 <div class="table-header">
-                    <h4>Clientes</h4>
+                    <h4>LISTA DE HÓSPEDES</h4>
+                    <button class="multiple-selects">Selecionar Vários</button>
+                    <input type="text" name="Search" id=""placeholder="Pesquisar...">
                     <button class="btn-add" ><i class="fas fa-plus"></i></button>
-
                     <dialog id="addHos" class="dialHosp">
                         <div class="dialogElements">
                             <form action="">
@@ -79,24 +80,31 @@
                     </dialog>
                                                     <dialog  id="confirmClose" class="cancel">
                                     <div class="confirmDialogCancel">
-                                        <p>Tem certeza que deseja cancelar o cadastro?</p>
+                                        <p>
+                                            Há um cadastro de hóspede em espera.Tem certeza que deseja cancelar o cadastro?</p>
                                         <input type="button" value="Sim" id="confirmCancel">
                                         <input type="button" value="Não" id="denyCancel">
                                     </div>
                                 </dialog>
-                </div>
-                <table class="head-table">
-                    <thead >
-                        <tr>
-                            <th>Nome</th>
-                            <th>CPF</th>
-                            <th>Telefone</th>
-                        </tr>
-                    </thead>
-                    <tbody id="guest-table-body">
 
-                    </tbody>
-                </table>
+                                <dialog class="editGuest"></dialog>
+                </div>
+
+                <div class="tables">
+                    <table class="head-table">
+                        <thead >
+                            <tr>
+                                <th>NOME</th>
+                                <th>TELEFONE</th>
+                                <th>CPF</th>
+                                <th> </th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody id="guest-table-body">
+                        </tbody>
+                    </table>
+                </div>
             </section>
         </main>
     </div>

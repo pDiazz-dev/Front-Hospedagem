@@ -19,10 +19,16 @@ salvarBtn.addEventListener("click", function () {
 
 // Quando clicar em "Cancelar" → abrir confirmação
 outDialog.addEventListener("click", function () {
-    confirmCloseDialog.showModal();
+    // Verificar se os campos estão preenchidos
+    const nome = document.getElementById("nomeHospede").value;
+    const cpf = document.getElementById("cpfHospede").value;
+    const telefone = document.getElementById("telefoneHospede").value;
+    if (cpf === "" && nome === "" && telefone === "") {
+        addHosDialog.close();
+        return;
     }
-
-)
+     confirmCloseDialog.showModal();
+})
 
 // Se clicar em "Sim" → fechar ambos os dialogs
 confirmCancel.addEventListener("click", function () {
@@ -33,4 +39,17 @@ confirmCancel.addEventListener("click", function () {
 // Se clicar em "Não" → apenas fecha a confirmação
 denyCancel.addEventListener("click", function () {
     confirmCloseDialog.close();
+})
+
+const openEditDialog = document.getElementById("penEdit");
+const editDialog = document.querySelector(".editGuest");
+ openEditDialog.addEventListener("click", function () {
+    let GuestViewInfoName = document.getElementById("editNomeHospede");
+    let GuestViewInfoCpf = document.getElementById("editCpfHospede");
+    let GuestViewInfoPhone = document.getElementById("editTelefoneHospede");
+    // Preencher os campos com as informações do hóspede selecionado
+    GuestViewInfoName.value = ${hospede.nome};
+    GuestViewInfoCpf.value = ${hospede.cpf};
+    GuestViewInfoPhone.value = ${hospede.telefone};
+    editDialog.showModal();
 })
