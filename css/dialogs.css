@@ -143,6 +143,7 @@
 
  /* -------------------- Mesangens de Erro do input-------------------- */
 .personalNumbQuantErr,
+.personalNameQuantErrQuantity,
 .personalNameQuantErr,
 .personalCpfQuantErr{
     display: none;

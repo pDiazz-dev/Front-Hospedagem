@@ -1,50 +1,48 @@
+// === Dialog.js ===
+
+// Referências aos elementos
 const btnAdd = document.querySelector(".btn-add");
 const addHosDialog = document.getElementById("addHos");
 const outDialog = document.getElementById("outDialog");
 const confirmCloseDialog = document.getElementById("confirmClose");
 const confirmCancel = document.getElementById("confirmCancel");
 const denyCancel = document.getElementById("denyCancel");
-const salvarBtn = document.getElementById("saveBtn");
+const openEditDialog = document.querySelector(".penEdit");
+const editDialog = document.querySelector(".editGuest");
 
-// Abrir o formulário de cadastro
+// Abre o formulário de cadastro
 btnAdd.addEventListener("click", function () {
-    addHosDialog.showModal();
-    
+  addHosDialog.showModal();
 });
 
-salvarBtn.addEventListener("click", function () {
-    //Limpar os campos
-    addHosDialog.close();
-})
-
-// Quando clicar em "Cancelar" → abrir confirmação
+// Cancelar cadastro
 outDialog.addEventListener("click", function () {
-    // Verificar se os campos estão preenchidos
-    const nome = document.getElementById("nomeHospede").value;
-    const cpf = document.getElementById("cpfHospede").value;
-    const telefone = document.getElementById("telefoneHospede").value;
-    if (cpf === "" && nome === "" && telefone === "") {
-        addHosDialog.close();
-        return;
-    }
-     confirmCloseDialog.showModal();
-})
+  const nome = document.getElementById("nomeHospede").value.trim();
+  const cpf = document.getElementById("cpfHospede").value.trim();
+  const telefone = document.getElementById("telefoneHospede").value.trim();
 
-// Se clicar em "Sim" → fechar ambos os dialogs
-confirmCancel.addEventListener("click", function () {
-    confirmCloseDialog.close();
+  // Se estiver vazio, apenas fecha
+  if (cpf === "" && nome === "" && telefone === "") {
     addHosDialog.close();
-})
+    return;
+  }
 
-// Se clicar em "Não" → apenas fecha a confirmação
+  confirmCloseDialog.showModal();
+});
+
+confirmCancel.addEventListener("click", function () {
+  confirmCloseDialog.close();
+  addHosDialog.close();
+});
+
 denyCancel.addEventListener("click", function () {
-    confirmCloseDialog.close();
+  confirmCloseDialog.close();
+});
+
+const saveEditBtn = document.getElementById("saveEditBtn");
+saveEditBtn.addEventListener("click", async () => {
+  const editNomeHospede = document.getElementById("editNomeHospede").value.trim();
+  const editTelefoneHospede = document.getElementById("editTelefoneHospede").value.trim();
 })
 
-const openEditDialog = document.getElementById("penEdit");
-const editDialog = document.querySelector(".editGuest");
- openEditDialog.addEventListener("click", function () {
-    let GuestViewInfoName = document.getElementById("editNomeHospede");
-    let GuestViewInfoCpf = document.getElementById("editCpfHospede");
-    let GuestViewInfoPhone = document.getElementById("editTelefoneHospede");
-})
+  
