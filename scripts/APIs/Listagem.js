@@ -1,4 +1,5 @@
-let hospedes = []; // variável global
+
+let hospedes = [];
 
 async function listarHospedes() {
     const tabelaBody = document.getElementById('guest-table-body');
