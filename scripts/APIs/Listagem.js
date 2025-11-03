@@ -13,14 +13,19 @@ async function listarHospedes() {
         }
 
         hospedes = await request.json();
+        
+
 
         hospedes.forEach(hospede => {
             const row = document.createElement('tr');
+
+            
+
             row.innerHTML = `
                 <td>${hospede.nome}</td>
-                <td>${hospede.telefone}</td>
                 <td>${hospede.cpf}</td>
-                <td><i class="fa-solid fa-pen-to-square penEdit" data-cpf="${hospede.cpf}"></i></td>
+                <td>${hospede.telefone}</td>
+                <td><i class="fa-solid fa-pen-to-square penEdit" data-set = ${hospede.telefone}></i></td>
                 <td><i class="fa-solid fa-trash-can"></i></td>
             `;
             tabelaBody.appendChild(row);
