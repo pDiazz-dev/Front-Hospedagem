@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/guestRow.css">
 </head>
+
 <body>
     <div class="container">
         <aside class="sidebar">
@@ -28,10 +30,10 @@
             </div>
         </aside>
 
-              
-                    <div class="toastNotification">
-                        
-                    </div>
+
+        <div class="toastNotification">
+
+        </div>
 
         <main class="main-content">
             <header class="main-header">
@@ -42,38 +44,49 @@
                 <button class="btn btn-red">NÃO POSSUI RESERVA</button>
                 <button class="btn btn-green">POSSUI RESERVA</button>
             </section>
-            
+
             <section class="recent-reservations">
 
-                 <div class="">
-                  
+                <div class="">
 
 
-                    </div>
+
+                </div>
                 <div class="table-header">
                     <h4>LISTA DE HÓSPEDES</h4>
                     <button class="multiple-selects">Selecionar Vários</button>
-                    <input type="text" name="Search" id=""placeholder="Pesquisar...">
-                    <button class="btn-add" ><i class="fas fa-plus"></i></button>
+                    <input type="text" name="Search" id="" placeholder="Pesquisar...">
+                    <button class="btn-add"><i class="fas fa-plus"></i></button>
                     <dialog id="addHos" class="dialHosp">
                         <div class="dialogElements">
                             <form action="">
                                 <label for="">Nome do hospede</label>
-                                <input type="text" name="" id="nomeHospede" placeholder="Nome Completo" autocomplete="off" required>
-                            <div class="personalNameQuantErr"><p>O nome não pode conter números!
-                            </p></div>
-                             <div class="personalNameQuantErrQuantity"><p>O nome deve conter mais de 3 caracteres!
-                            </p></div>
+                                <input type="text" name="" id="nomeHospede" placeholder="Nome Completo"
+                                    autocomplete="off" required>
+                                <div class="personalNameQuantErr">
+                                    <p>O nome não pode conter números!
+                                    </p>
+                                </div>
+                                <div class="personalNameQuantErrQuantity">
+                                    <p>O nome deve conter mais de 3 caracteres!
+                                    </p>
+                                </div>
 
-                                
+
                                 <label for="">Telefone</label>
-                                <input type="text" name="" id="telefoneHospede" placeholder="(00) 00000-0000" autocomplete="off" required>
-                            <div class="personalNumbQuantErr"><p>Verifique se o número está correto!</p></div>
+                                <input type="text" name="" id="telefoneHospede" placeholder="(00) 00000-0000"
+                                    autocomplete="off" required>
+                                <div class="personalNumbQuantErr">
+                                    <p>Verifique se o número está correto!</p>
+                                </div>
 
 
                                 <label for="">CPF</label>
-                                <input type="text" name="" id="cpfHospede" placeholder="000.000.000-00" autocomplete="off" required>
-                            <div class="personalCpfQuantErr"><p>Verifique se o CPF está correto!</p></div>
+                                <input type="text" name="" id="cpfHospede" placeholder="000.000.000-00"
+                                    autocomplete="off" required>
+                                <div class="personalCpfQuantErr">
+                                    <p>Verifique se o CPF está correto!</p>
+                                </div>
                                 <input type="button" value="Adicionar" id="saveBtn">
                                 <input type="button" value="Cancelar" id="outDialog">
 
@@ -81,36 +94,53 @@
                             </form>
                         </div>
                     </dialog>
-                                                    <dialog  id="confirmClose" class="cancel">
-                                    <div class="confirmDialogCancel">
-                                        <p>
-                                            Há um cadastro de hóspede em espera.Tem certeza que deseja cancelar o cadastro?</p>
-                                        <input type="button" value="Sim" id="confirmCancel">
-                                        <input type="button" value="Não" id="denyCancel">
-                                    </div>
-                                </dialog>
+                    <dialog id="confirmClose" class="cancel">
+                        <div class="confirmDialogCancel">
+                            <p>
+                                Há um cadastro de hóspede em espera.Tem certeza que deseja cancelar o cadastro?</p>
+                            <input type="button" value="Sim" id="confirmCancel">
+                            <input type="button" value="Não" id="denyCancel">
+                        </div>
+                    </dialog>
 
-                                <dialog class="editGuest">
-                                    <div class="editGuestDialog">
-                                        <form action="">
-                                            <label for="">Nome do hospede</label>
-                                            <input type="text" name="" id="editNomeHospede" placeholder="Nome Completo" autocomplete="off" required>
-                                        
-                                            <label for="">Telefone</label>
-                                            <input type="text" name="" id="editTelefoneHospede" placeholder="(00) 00000-0000" autocomplete="off" required>
-                                        
-                                        
-                                        
-                                            <input type="button" value="Salvar" id="saveEditBtn">
-                                            <input type="button" value="Cancelar" id="cancelEditBtn">
-                                        </form>
-                                    </div>
-                                </dialog>
+                    <dialog class="editGuest">
+                        <div class="editGuestDialog">
+                            <form action="">
+                                <label for="">Nome do hospede</label>
+                                <input type="text" name="" id="editNomeHospede" placeholder="Nome Completo"
+                                    autocomplete="off" required>
+
+                                <label for="">Telefone</label>
+                                <input type="text" name="" id="editTelefoneHospede" placeholder="(00) 00000-0000"
+                                    autocomplete="off" required>
+
+
+
+                                <input type="button" value="Salvar" id="saveEditBtn">
+                                <input type="button" value="Cancelar" id="cancelEditBtn">
+                            </form>
+                        </div>
+                    </dialog>
                 </div>
+
+                 </dialog>
+                    <dialog class="DeleteGuest">
+                        <div class="confirmDialogDelete">
+                            <p>
+                                Você está prestes a excluir um hóspede. Tem certeza que deseja continuar?</p>
+
+                            <input type="button" value="Sim" class="confirmProssesForDeleteHopede">
+                            <input type="button" value="Não" class="cancelDeleteHospede">
+                        </div>
+                    </dialog>
+                  
+
+
+
 
                 <div class="tables">
                     <table class="head-table">
-                        <thead >
+                        <thead>
                             <tr>
                                 <th>NOME</th>
                                 <th>TELEFONE</th>
@@ -132,4 +162,6 @@
 <script src="../scripts/APIs/HttpAPI.js"></script>
 <script src="../scripts/APIs/Listagem.js"></script>
 <script src="../scripts/EditHospConnection.js"></script>
+<script src="../scripts/DeleteHospConnection.js"></script>
+
 </html>

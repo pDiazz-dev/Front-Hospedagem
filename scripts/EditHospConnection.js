@@ -5,11 +5,15 @@ const tableBody = document.getElementById('guest-table-body');
 let cpfSelecionado = null;
 tableBody.addEventListener("click", (e) => {
     if (e.target.classList.contains("penEdit")){
-        const btn = e.target.closest(".penEdit")
         const dialogEditHosp = document.querySelector(".editGuest");
         dialogEditHosp.showModal();
         
         cpfSelecionado = e.target.getAttribute("data-set");
+
+        const cancelBtn2 = document.getElementById("cancelEditBtn")
+cancelBtn2.addEventListener("click", () => {
+    dialogEditHosp.close();
+})
     }
 })  
 
@@ -43,3 +47,5 @@ saveEditBtn2.addEventListener("click", async () => {
     }
     
 })
+
+

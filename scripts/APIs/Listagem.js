@@ -26,7 +26,7 @@ async function listarHospedes() {
                 <td>${hospede.cpf}</td>
                 <td>${hospede.telefone}</td>
                 <td><i class="fa-solid fa-pen-to-square penEdit" data-set = ${hospede.telefone}></i></td>
-                <td><i class="fa-solid fa-trash-can"></i></td>
+                <td><i class="fa-solid fa-trash-can trashDel " data-set = ${hospede.telefone}></i></td>
             `;
             tabelaBody.appendChild(row);
         });
