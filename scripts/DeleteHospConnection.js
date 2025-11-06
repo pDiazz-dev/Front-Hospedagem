@@ -3,7 +3,7 @@ let deleteCpf = null;
 tableBody.addEventListener("click", async (e) => {
     if(e.target.classList.contains("trashDel")){
         deleteCpf = e.target.getAttribute("data-set")
-        const dialogDeleteHosp = document.querySelector(".DeleteGuest")
+        const dialogDeleteHosp = document.querySelector(".deleteGuest")
         dialogDeleteHosp.showModal();
 
        const deleteCancelBtn = document.querySelector(".cancelDeleteHospede")
@@ -25,7 +25,7 @@ tableBody.addEventListener("click", async (e) => {
         } catch(error){
             console.error("Erro ao deletar hóspede:",  error)
         }
-
+         
         
     })
 

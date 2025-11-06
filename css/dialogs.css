@@ -141,6 +141,8 @@
 }
 
 
+
+
  /* -------------------- Mesangens de Erro do input-------------------- */
 .personalNumbQuantErr,
 .personalNameQuantErrQuantity,
@@ -153,4 +155,87 @@
     font-size: 14px;
 }
 
+/*-------------------- Dialog Editar Hóspede-------------------- */
 
+.editGuest{
+   position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    max-width: 90vw;
+    background-color: #552323;
+    border: none;
+    border-radius: 12px;
+    transition: ease-in 0.3s;
+    box-shadow: 0px 2px 7px black;
+}
+
+
+.editGuest::backdrop{
+    backdrop-filter: blur(3px);
+    background-color: #302f2f69;
+}
+
+.editGuestDialog{
+    display: flex;
+    justify-content: center;
+    width: 100%; 
+    padding: 70px;
+    color: white;
+}
+
+.editGuestDialog form {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+}
+
+.editGuestDialog label {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+.editGuestDialog input[type="text"] {
+    padding: 10px 15px;
+    border: 1px solid #00000052;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.editGuestDialog input[type="button"] {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+  
+}
+#saveEditBtn{
+    background-color: #ffffff;
+    margin-bottom:px ;
+      margin-top: 40px;
+}
+
+#saveEditBtn:hover{
+    background-color: #F5E6C4;
+    transition: ease-out 0.2s;
+    transform: scale(1.03);
+}
+
+#cancelEditBtn{
+    background-color: rgb(255, 255, 255);
+      margin-top: 20px;
+    }
+#cancelEditBtn:hover{
+    background-color: #a72424;
+    transition: ease-out 0.2s;
+    color: white;
+    transform: scale(1.03);
+}
