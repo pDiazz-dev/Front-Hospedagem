@@ -23,10 +23,10 @@ async function listarHospedes() {
 
             row.innerHTML = `
                 <td>${hospede.nome}</td>
-                <td>${hospede.cpf}</td>
                 <td>${hospede.telefone}</td>
-                <td><i class="fa-solid fa-pen-to-square penEdit" data-set = ${hospede.telefone}></i></td>
-                <td><i class="fa-solid fa-trash-can trashDel " data-set = ${hospede.telefone}></i></td>
+                <td>${hospede.cpf}</td>
+                <td><i class="fa-solid fa-pen-to-square penEdit" data-set = ${hospede.cpf}></i></td>
+                <td><i class="fa-solid fa-trash-can trashDel " data-set = ${hospede.cpf}></i></td>
             `;
             tabelaBody.appendChild(row);
         });

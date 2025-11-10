@@ -239,3 +239,34 @@
     color: white;
     transform: scale(1.03);
 }
+
+
+    /*-------------------- Dialog de Deleção de Hóspede-------------------- */
+    .deleteGuest{
+        position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    max-width: 90vw;
+    background-color: #552323;
+    border: none;
+    border-radius: 12px;
+    transition: ease-in 0.3s;
+    box-shadow: 0px 2px 7px black;
+    }
+
+    .deleteGuest::backdrop{
+        backdrop-filter: blur(3px);
+        background-color: #302f2f69;
+    }
+
+    .confirmDialogDelete{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%; 
+        padding: 70px;
+        color: white;
+        text-align: center;
+    }
