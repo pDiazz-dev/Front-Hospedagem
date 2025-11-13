@@ -1,10 +1,14 @@
+/*-------------------- Toast Notification --------------------*/
+
 .toastNotification {
     position: fixed;
     top: 30px;
     right: 0px;
-    z-index: 1000;
+    z-index: 9999 !important; /* acima de tudo */
+    pointer-events: none; /* não bloqueia o diálogo */
 }
-.toast{
+
+.toast {
     position: relative;
     padding: 10px;
     margin-bottom: 15px;
@@ -13,54 +17,63 @@
     display: grid;
     grid-template-columns: 70px 1fr 30px;
     border-radius: 8px;
-    --color: #d4a540;
-    background-color:#3e2723;
+    background-color: #3e2723;
     animation: show 0.3s ease 1 forwards;
-;
+    pointer-events: auto; /* permite clicar no X */
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
 }
-.toast i{
+
+.toast i {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5em;
 }
 
-.fa-solid.fa-circle-check{
+.fa-solid.fa-circle-check {
     color: #20cc14;
 }
-.fa-solid.fa-circle-xmark{
+
+.fa-solid.fa-circle-xmark {
     color: #ff0000;
 }
 
-.fa-solidfa-x:hover{
+.toast i.fa-solid.fa-x {
     cursor: pointer;
+    color: #ffffffa4;
+    transition: color 0.2s ease;
 }
 
-.toast span, .toast i:nth-child(3){
+.toast i.fa-solid.fa-x:hover {
+    color: #fff;
+}
+
+.toast span, .toast i:nth-child(3) {
     color: #ffffffa4;
 }
-.title{
+
+.title {
     font-size: 1.2em;
     font-weight: 700;
     margin-bottom: 5px;
 }
 
-@keyframes show{
-    0%{
+/* Animações */
+@keyframes show {
+    0% {
         opacity: 0;
         transform: translateX(100%);
     }
-    40%{
+    40% {
         transform: translateX(-5%);
     }
-
-    100%{
+    100% {
         opacity: 1;
         transform: translateX(-10%);
     }
 }
 
-.toast::before{
+.toast::before {
     content: '';
     position: absolute;
     top: 0;
@@ -74,9 +87,8 @@
     animation: timeOut 4s linear 1 forwards;
 }
 
-
-@keyframes timeOut{
-    to{
+@keyframes timeOut {
+    to {
         width: 0%;
     }
 }
