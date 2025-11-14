@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/roomsStyle.css">
     <link rel="stylesheet" href="../css/dialogListRooms.css">
     <link rel="stylesheet" href="../css/toastNotifications.css">
+    <link rel="stylesheet" href="../css/dialogReservs.css">
 </head>
 <body>
     <div class="container">
@@ -38,56 +39,20 @@
                 <div class="table-header">
                     <h4>Lista de Reservas</h4>
                     
-                        <button class="btn-add"><i class="fas fa-plus btnGreenAddHospInTheRoom"></i></button>
+                        <button class="btn-add btnGreenAddHospInTheRoom"><i class="fas fa-plus "></i></button>
                </div>
                 <table class="reservations-table">
                     <thead>
                         <tr>
                             <th>Cliente</th>
                             <th>Quarto</th>
+                            <th>Diárias</th>
                             <th>Check-in</th>
                             <th>Check-out</th>
-                            <th>Diárias</th>
-                            <th>Valor</th>
-                            <th>Status</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>José Carlos</td>
-                            <td>101</td>
-                            <td>20/08</td>
-                            <td>22/08</td>
-                            <td>2</td>
-                            <td>R$ 400</td>
-                            <td class="status-active">ATIVA</td>
-                        </tr>
-                        <tr>
-                            <td>Maria Ribeiro</td>
-                            <td>202</td>
-                            <td>21/08</td>
-                            <td>25/08</td>
-                            <td>4</td>
-                            <td>R$ 640</td>
-                            <td class="status-pending">PENDENTE</td>
-                        </tr>
-                         <tr>
-                            <td>Lana Pereira</td>
-                            <td>103</td>
-                            <td>24/08</td>
-                            <td>26/08</td>
-                            <td>2</td>
-                            <td>R$ 380</td>
-                            <td class="status-cancelled">CANCELADA</td>
-                        </tr>
-                        <tr>
-                            <td>João Pontes</td>
-                            <td>301</td>
-                            <td>25/08</td>
-                            <td>29/08</td>
-                            <td>4</td>
-                            <td>R$ 640</td>
-                            <td class="status-finished">FINALIZADA</td>
+                    <tbody class="reservations-table-body">
+                       
                         </tr>
                     </tbody>
                 </table>
@@ -125,7 +90,8 @@
         <form id="formReserva">
             <label for="hospedeSelect">Selecione o Hóspede:</label>
             <select id="hospedeSelect" required></select>
-
+            <label for="quantitySelect" required>Secione a quantidade de pessoas</label>
+            <input id="QuantitySelect" type="number">
             <label for="quartoSelect">Selecione o Quarto:</label>
             <select id="quartoSelect" required></select>
 
@@ -136,8 +102,9 @@
             <input type="date" id="checkout" required>
 
             <div class="dialog-actions">
+                 <button type="submit" class="btn-confirmReserva">Confirmar</button>
                 <button type="button" class="btn-cancel" id="closeReserva">Cancelar</button>
-                <button type="submit" class="btn-confirm">Confirmar</button>
+               
             </div>
         </form>
     </dialog>
@@ -172,6 +139,8 @@
     <script src="../scripts/APIs/HttpAPI.js"></script>
     <script src="../scripts/APIs/ListarQuartos.js"></script>    
   <script src="../scripts/RoomDialog.js"></script>
+  <script src="../scripts/FazerReserva.js"></script>
+  <script src="../scripts/ListarReservas.js"></script>
     
   
 </body>

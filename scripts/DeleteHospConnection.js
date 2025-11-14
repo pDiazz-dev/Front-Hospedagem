@@ -23,12 +23,12 @@ deleteConfirmBtn.addEventListener("click", async () => {
   if (!deleteCpf) return;
 
   try {
-    await fetch(`${config.API_URL}/new-guest/delete-guest/${deleteCpf}`, {
+    await fetch(`${config.API_URL}/hospede/${deleteCpf}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     });
     dialogDeleteHosp.close();
-    window.location.reload();
+    
   } catch (error) {
     console.error("Erro ao deletar hóspede:", error);
   }

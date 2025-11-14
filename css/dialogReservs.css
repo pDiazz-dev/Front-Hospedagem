@@ -1,0 +1,105 @@
+/*-------------------- Dialog: Fazer Reserva --------------------*/
+
+#dialogReserva {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    max-width: 90vw;
+    background-color: #552323;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0px 2px 7px black;
+    color: white;
+    padding: 40px;
+    transition: all 0.3s ease-in-out;
+    z-index: 2000;
+}
+
+#dialogReserva::backdrop {
+    background-color: rgba(48, 47, 47, 0.45);
+}
+
+/* Cabeçalho */
+#dialogReserva .dialog-header {
+    font-size: 1.4em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+/* Formulário */
+#dialogReserva form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#dialogReserva label {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #ccc;
+}
+#QuantitySelect,
+#dialogReserva input[type="date"],
+#dialogReserva select {
+    padding: 10px 15px;
+    border: 1px solid #00000052;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+#dialogReserva input:focus,
+#dialogReserva select:focus {
+    outline: none;
+    border-color: #a72424;
+}
+
+
+#dialogReserva .dialog-actions {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+#dialogReserva .dialog-actions button {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: all 0.2s ease-in-out;
+}
+
+
+#dialogReserva .btn-confirmReserva {
+    background-color: #ffffff;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+#dialogReserva .btn-confirmReserva:hover {
+    background-color: #F5E6C4;
+    transform: scale(1.03);
+    
+}
+
+
+#dialogReserva .btn-cancel {
+    background-color: #ffffff;
+    color: #000;
+}
+
+#dialogReserva .btn-cancel:hover {
+    background-color: #a72424;
+    color: white;
+    transform: scale(1.03);
+}

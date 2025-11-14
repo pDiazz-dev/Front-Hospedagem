@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (editNomeHospede) editNomeHospede = formatarNomeCompleto(editNomeHospede);
 
       try {
-        const response = await fetch(`${config.API_URL}/new-guest/update-guest`, {
+        const response = await fetch(`${config.API_URL}/hospede`, {
           method: "PATCH",
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

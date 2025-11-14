@@ -89,7 +89,7 @@ CadNewHospede.addEventListener("click", () => {
 
   nome = formatarNomeCompleto(nome);
 
-  fetch(`${config.API_URL}/new-guest/sigin-guest`, {
+  fetch(`${config.API_URL}/hospede`, {
     method: "POST",
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ nome, telefone, cpf })

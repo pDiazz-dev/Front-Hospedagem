@@ -6,7 +6,7 @@ async function listarHospedes() {
     tabelaBody.innerHTML = '';
 
     try {
-        const request = await fetch(`${config.API_URL}/new-guest/hospedes`);
+        const request = await fetch(`${config.API_URL}/hospede/hospedes-list`);
         if (!request.ok) {
             console.error('Erro ao buscar hóspedes');
             return;
@@ -30,7 +30,7 @@ async function listarHospedes() {
             `;
             tabelaBody.appendChild(row);
         });
-
+        
     } catch (error) {
         console.error('Erro ao processar a lista de hóspedes:', error);
     }
