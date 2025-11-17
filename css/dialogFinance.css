@@ -1,0 +1,109 @@
+
+
+#finance-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    max-width: 90vw;
+    background-color: #552323;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0px 2px 7px black;
+    color: white;
+    padding: 40px;
+    transition: all 0.3s ease-in-out;
+    z-index: 2000;
+}
+
+
+#finance-dialog::backdrop {
+    background-color: rgba(48, 47, 47, 0.45);
+}
+
+
+#finance-dialog h3 {
+    font-size: 1.4em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+
+#finance-dialog form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#finance-dialog label {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+
+#finance-dialog input[type="text"],
+#finance-dialog input[type="number"],
+#finance-dialog input[type="date"],
+#finance-dialog select {
+    padding: 10px 15px;
+    border: 1px solid #00000052;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #000;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+#finance-dialog input:focus,
+#finance-dialog select:focus {
+    outline: none;
+    border-color: #a72424;
+}
+
+
+.dialog-actions {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+
+.dialog-actions button {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: all 0.2s ease-in-out;
+}
+
+
+.btn-confirmar {
+    background-color: #ffffff;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.btn-confirmar:hover {
+    background-color: #F5E6C4;
+    transform: scale(1.03);
+}
+
+
+.btn-cancelar {
+    background-color: #ffffff;
+    color: #000;
+}
+
+.btn-cancelar:hover {
+    background-color: #a72424;
+    color: white;
+    transform: scale(1.03);
+}

@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pensão Rosilene Baterex | Financeiro</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dialogFinance.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
     <div class="container">
         <aside class="sidebar">
@@ -21,31 +24,25 @@
                     <li class="active"><a href="financeiro.html"><i class="fas fa-dollar-sign"></i> Financeiro</a></li>
                 </ul>
             </nav>
-            <div class="sidebar-footer">
-            </div>
         </aside>
-
         <main class="main-content">
             <header class="main-header">
-                <h2>Financeiro</h2>
-                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                <h2>Financeiro</h2> <button class="btn-add" id="btn-open-dialog"><i class="fas fa-plus"></i></button>
             </header>
-
             <section class="summary-cards">
                 <div class="card">
                     <h4>Saldo</h4>
-                    <p>R$ 00,00</p>
+                    <p id="card-saldo">R$ 00,00</p>
                 </div>
                 <div class="card">
-                    <h4>Entrada(mês)</h4>
-                    <p>R$ 00,00</p>
+                    <h4>Entrada (mês)</h4>
+                    <p id="card-entrada">R$ 00,00</p>
                 </div>
                 <div class="card">
-                    <h4>Saída(mês)</h4>
-                    <p>R$ 00,00</p>
+                    <h4>Saída (mês)</h4>
+                    <p id="card-saida">R$ 00,00</p>
                 </div>
             </section>
-
             <section class="recent-reservations">
                 <table class="reservations-table">
                     <thead>
@@ -56,56 +53,48 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>29/08/2025</td>
-                            <td>Diária Quarto 104</td>
-                            <td class="finance-value-green">R$150.00</td>
-                            <td class="finance-actions">
-                                <i class="fas fa-pencil-alt"></i>
-                                <i class="fas fa-trash-alt"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>29/08/2025</td>
-                            <td>Café da manhã</td>
-                            <td class="finance-value-green">R$150.00</td>
-                            <td class="finance-actions">
-                                <i class="fas fa-pencil-alt"></i>
-                                <i class="fas fa-trash-alt"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>29/08/2025</td>
-                            <td>picolé de maracujá</td>
-                            <td class="finance-value-green">R$150.00</td>
-                            <td class="finance-actions">
-                                <i class="fas fa-pencil-alt"></i>
-                                <i class="fas fa-trash-alt"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>29/08/2025</td>
-                            <td>Coca-Cola 200ml</td>
-                            <td class="finance-value-green">R$150.00</td>
-                            <td class="finance-actions">
-                                <i class="fas fa-pencil-alt"></i>
-                                <i class="fas fa-trash-alt"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>29/08/2025</td>
-                            <td>Açaí 200ml</td>
-                            <td class="finance-value-green">R$150.00</td>
-                            <td class="finance-actions">
-                                <i class="fas fa-pencil-alt"></i>
-                                <i class="fas fa-trash-alt"></i>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tbody id="finance-tbody"></tbody>
                 </table>
-            </section>
+            </section> <!-- Dialog -->
+           <dialog id="finance-dialog" class="finance-dialog">
+    <form id="finance-form">
+        <h3>Adicionar Movimento</h3>
+
+        <label for="pagamento-hospede">Hóspede:</label>
+        <select id="pagamento-hospede" required>
+            <option value="">Selecione um hóspede</option>
+        </select>
+
+        <label for="pagamento-reserva">Reserva:</label>
+        <select id="pagamento-reserva" required disabled>
+            <option value="">Selecione uma reserva</option>
+        </select>
+
+        <label for="finance-metodo">Método de pagamento:</label>
+        <select id="finance-metodo" required>
+            <option value="PIX">PIX</option>
+            <option value="DINHEIRO">DINHEIRO</option>
+            <option value="CARTAO">CARTAO</option>
+            <option value="BOLETO">BOLETO</option>
+        </select>
+
+        <label for="finance-valor">Valor (R$):</label>
+        <input type="number" id="finance-valor" step="0.01" required>
+
+        <label for="finance-data">Data:</label>
+        <input type="date" id="finance-data" required>
+
+        <div class="dialog-actions">
+            <button type="submit" class="btn-confirmar">Adicionar</button>
+            <button type="button" id="btn-cancelar" class="btn-cancelar">Cancelar</button>
+        </div>
+    </form>
+</dialog>
         </main>
     </div>
+    <script src="../scripts/APIs/HttpAPI.js"></script>
+    <script src="../scripts/Finance.js"></script>
+    <script src="../scripts/ListarPagamentos.js"></script>
 </body>
+
 </html>
