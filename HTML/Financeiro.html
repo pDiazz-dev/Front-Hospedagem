@@ -29,20 +29,7 @@
             <header class="main-header">
                 <h2>Financeiro</h2> <button class="btn-add" id="btn-open-dialog"><i class="fas fa-plus"></i></button>
             </header>
-            <section class="summary-cards">
-                <div class="card">
-                    <h4>Saldo</h4>
-                    <p id="card-saldo">R$ 00,00</p>
-                </div>
-                <div class="card">
-                    <h4>Entrada (mês)</h4>
-                    <p id="card-entrada">R$ 00,00</p>
-                </div>
-                <div class="card">
-                    <h4>Saída (mês)</h4>
-                    <p id="card-saida">R$ 00,00</p>
-                </div>
-            </section>
+           
             <section class="recent-reservations">
                 <table class="reservations-table">
                     <thead>
@@ -55,7 +42,25 @@
                     </thead>
                     <tbody id="finance-tbody"></tbody>
                 </table>
-            </section> <!-- Dialog -->
+            </section>
+            
+            
+            <section class="reservations-nao-feitas">
+                <table class="reservations-nao-feitas">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="finance-nao-realizado"></tbody>
+                </table>
+            </section>
+            
+            
+            <!-- Dialog -->
            <dialog id="finance-dialog" class="finance-dialog">
     <form id="finance-form">
         <h3>Adicionar Movimento</h3>
@@ -90,6 +95,9 @@
         </div>
     </form>
 </dialog>
+
+
+
         </main>
     </div>
     <script src="../scripts/APIs/HttpAPI.js"></script>

@@ -27,7 +27,6 @@ async function listarQuartos() {
       row.innerHTML = `
         <td>${quarto.tipoQuarto}</td>
         <td>${quarto.numeroQuarto}</td>
-        <td>R$ ${Number(quarto.valorQuarto).toFixed(2)}</td>
         <td>${quarto.ativo ? 'Ativo' : 'Inativo'}</td>
       `;
       tabelaBody.appendChild(row);
