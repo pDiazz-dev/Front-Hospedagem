@@ -1,35 +1,44 @@
-let deleteCpf = null;
+let deletReservRoomNumber = null;
 
-const tableBody = document.getElementById("guest-table-body");
-const dialogDeleteHosp = document.querySelector(".deleteGuest");
-const deleteCancelBtn = document.querySelector(".cancelDeleteHospede");
-const deleteConfirmBtn = document.querySelector(".confirmProssesForDeleteHopede");
-
+const tableBody = document.querySelector(".reservations-table-body");
+const dialogDeleteReserv = document.querySelector(".deleteReserv");
+const deleteCancelBtn = document.querySelector(".cancelProssesForDeleteReserv");
+const deleteConfirmBtn = document.querySelector(".confirmDeleteReserv");
 
 tableBody.addEventListener("click", (e) => {
-  if (e.target.classList.contains("trashDel")) {
-    deleteCpf = e.target.getAttribute("data-set");
-    dialogDeleteHosp.showModal();
-  }
+    if (e.target.classList.contains("trashDelReserv")) {
+        deletReservRoomNumber = e.target.getAttribute("data-set");
+        dialogDeleteReserv.showModal();
+    }
 });
-
 
 deleteCancelBtn.addEventListener("click", () => {
-  dialogDeleteHosp.close();
+    dialogDeleteReserv.close();
 });
 
+deleteConfirmBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
 
-deleteConfirmBtn.addEventListener("click", async () => {
-  if (!deleteCpf) return;
+    if (!deletReservRoomNumber) return;
 
-  try {
-    await fetch(`${config.API_URL}/hospede/${deleteCpf}`, {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-    });
-    dialogDeleteHosp.close();
-    
-  } catch (error) {
-    console.error("Erro ao deletar hóspede:", error);
-  }
+    try {
+        const response = await fetch(
+            `${config.API_URL}/reservas/${deletReservRoomNumber}`,
+            {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }
+        );
+
+        if (!response.ok) {
+            console.error("Erro do servidor:", await response.text());
+            return;
+        }
+
+        dialogDeleteReserv.close();
+    } catch (error) {
+        console.error("Erro ao deletar reserva:", error);
+    }
 });

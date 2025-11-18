@@ -27,7 +27,7 @@ async function listarReservas() {
                 <td>${reserva.numeroDePessoas}</td>
                 <td>${reserva.checkin}</td>
                 <td>${reserva.checkout}</td>
-               
+               <td><i class="fa-solid fa-trash-can trashDelReserv " data-set = ${reserva.quartos.numeroQuarto}></i></td>
             `;
             tabelaBody.appendChild(row);
         });

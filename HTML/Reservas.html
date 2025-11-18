@@ -53,7 +53,6 @@
                     </thead>
                     <tbody class="reservations-table-body">
                        
-                        </tr>
                     </tbody>
                 </table>
             </section>
@@ -136,12 +135,23 @@
         </form>
     </dialog>
 
+     <dialog class="deleteReserv">
+    <div class="dialog-header">Excluir Reserva</div>
+    <form id="formDeleteReserv">
+        <p>Tem certeza que deseja excluir esta reserva?</p>
+        <div class="dialog-actions">
+             <button type="button" class="confirmDeleteReserv">Confirmar</button>
+            <button type="button" class="cancelProssesForDeleteReserv" id="closeDeleteReserv">Cancelar</button>
+        </div>
+        </form>
+    </dialog>
+
     <script src="../scripts/APIs/HttpAPI.js"></script>
     <script src="../scripts/APIs/ListarQuartos.js"></script>    
   <script src="../scripts/RoomDialog.js"></script>
   <script src="../scripts/FazerReserva.js"></script>
   <script src="../scripts/ListarReservas.js"></script>
-    
+    <script src="../scripts/DeleteReservs.js"></script>
   
 </body>
 </html>
