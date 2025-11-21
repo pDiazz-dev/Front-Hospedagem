@@ -8,17 +8,20 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/dialogFinance.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/pendingTable.css">
+    <link rel="stylesheet" href="../css/toastNotifications.css">
 </head>
 
 <body>
+    
     <div class="container">
+        <div class="toastNotification"></div>
         <aside class="sidebar">
             <div class="sidebar-header">
-                <h3>Dashboard</h3>
+                <h3>PENSÃO ROSILENE BATEREX</h3>
             </div>
             <nav class="sidebar-nav">
                 <ul>
-                    <li><a href="index.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
                     <li><a href="reservas.html"><i class="fas fa-calendar-alt"></i> Reservas</a></li>
                     <li><a href="hospedes.html"><i class="fas fa-users"></i> Hóspedes</a></li>
                     <li class="active"><a href="financeiro.html"><i class="fas fa-dollar-sign"></i> Financeiro</a></li>
@@ -31,6 +34,9 @@
             </header>
            
             <section class="recent-reservations">
+               <div class="tbPagasHeader">
+                    <h4>RESERVAS PAGAS</h4>
+                </div>
                 <table class="reservations-table">
                     <thead>
                         <tr>
@@ -46,13 +52,15 @@
             
             
             <section class="reservations-nao-feitas">
-                <table class="reservations-nao-feitas">
+                  <div class="tbHeader">
+                    <h4>RESERVAS COM PAGAMENTOS PENDENTES</h4>
+                </div>
+                <table class="reservations-nao-feitas-table">
                     <thead>
                         <tr>
-                            <th>Data</th>
+                            <th>Data de entrada</th>
                             <th>Descrição</th>
-                            <th>Valor</th>
-                            <th></th>
+                            <th>Data de saida</th>
                         </tr>
                     </thead>
                     <tbody id="finance-nao-realizado"></tbody>
@@ -96,13 +104,24 @@
     </form>
 </dialog>
 
+     <dialog class="financeDelete">
+                        <div class="DeleteFinance">
+                            <p>
+                               Tem certeza que deseja excluir o pagamento realizado?</p>
+
+                            <input type="button" value="Sim" class="confirmProssesForDeleteFinance">
+                            <input type="button" value="Não" class="cancelDeleteFinance">
+                        </div>
+                    </dialog>
 
 
         </main>
     </div>
     <script src="../scripts/APIs/HttpAPI.js"></script>
+    <script src="../scripts/ToastNotification.js"></script>
     <script src="../scripts/Finance.js"></script>
     <script src="../scripts/ListarPagamentos.js"></script>
+    <script src="../scripts/PendingPagamento.js"></script>
 </body>
 
 </html>

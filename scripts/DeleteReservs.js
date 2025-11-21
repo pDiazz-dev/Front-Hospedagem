@@ -6,28 +6,39 @@ const deleteCancelBtn = document.querySelector(".cancelProssesForDeleteReserv");
 const deleteConfirmBtn = document.querySelector(".confirmDeleteReserv");
 
 tableBody.addEventListener("click", (e) => {
-  if (e.target.classList.contains("trashDelReserv")) {
-    deletReservRoomNumber = e.target.getAttribute("data-set");
-    dialogDeleteReserv.showModal();
-  }
+    if (e.target.classList.contains("trashDelReserv")) {
+        deletReservRoomNumber = e.target.getAttribute("data-set");
+        dialogDeleteReserv.showModal();
+    }
 });
 
 deleteCancelBtn.addEventListener("click", () => {
-  dialogDeleteReserv.close();
+    dialogDeleteReserv.close();
 });
 
-deleteConfirmBtn.addEventListener("click", async () => {
-  if (!deletReservRoomNumber) return;
+deleteConfirmBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
 
-  try {
-    await fetch(`${config.API_URL}/reservas/${deletReservRoomNumber}`, {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-    });
+    if (!deletReservRoomNumber) return;
 
-    dialogDeleteReserv.close();
+    try {
+        const response = await fetch(
+            `${config.API_URL}/reservas/${deletReservRoomNumber}`,
+            {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }
+        );
 
-  } catch (error) {
-    console.error("Erro ao deletar reserva:", error);
-  }
+        if (!response.ok) {
+            console.error("Erro do servidor:", await response.text());
+            return;
+        }
+
+        dialogDeleteReserv.close();
+    } catch (error) {
+        console.error("Erro ao deletar reserva:", error);
+    }
 });

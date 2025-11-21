@@ -7,7 +7,7 @@ let quartos = [];
 async function listarQuartos() {
   const tabelaBody = document.querySelector('.rooms-table-Body');
   if (!tabelaBody) {
-    console.error("Elemento '.rooms-table-Body' não encontrado!");
+    toast("Erro interno: elemento da tabela não encontrado!", "error");
     return;
   }
 
@@ -16,7 +16,7 @@ async function listarQuartos() {
   try {
     const response = await fetch(`${config.API_URL}/quartos`);
     if (!response.ok) {
-      console.error('Erro ao buscar quartos');
+      toast("Erro ao buscar a lista de quartos!", "error");
       return;
     }
 
@@ -33,6 +33,6 @@ async function listarQuartos() {
     });
 
   } catch (error) {
-    console.error('Erro ao processar a lista de quartos:', error);
+    toast("Erro inesperado ao carregar quartos!", "error");
   }
 }

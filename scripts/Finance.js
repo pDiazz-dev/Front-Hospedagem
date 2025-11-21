@@ -10,7 +10,10 @@ const reservaSelect = document.getElementById("pagamento-reserva");
 async function carregarHospedes() {
     try {
         const res = await fetch(`${config.API_URL}/hospede/hospedes-list`);
-        if (!res.ok) return;
+        if (!res.ok) {
+            createToastNotification("Erro", "Falha ao carregar hóspedes!", "fa-solid fa-circle-xmark", "Erro");
+            return;
+        }
 
         const hospedes = await res.json();
 
@@ -23,6 +26,7 @@ async function carregarHospedes() {
 
     } catch (err) {
         console.error("Erro ao carregar hóspedes:", err);
+        createToastNotification("Erro", "Erro de conexão ao carregar hóspedes!", "fa-solid fa-circle-xmark", "Erro");
     }
 }
 
@@ -35,7 +39,10 @@ hospedeSelect.addEventListener("change", async () => {
 
     try {
         const res = await fetch(`${config.API_URL}/reservas/reservas-recentes`);
-        if (!res.ok) return;
+        if (!res.ok) {
+            createToastNotification("Erro", "Falha ao carregar reservas!", "fa-solid fa-circle-xmark", "Erro");
+            return;
+        }
 
         const reservas = await res.json();
 
@@ -44,7 +51,6 @@ hospedeSelect.addEventListener("change", async () => {
             .forEach(r => {
                 const op = document.createElement("option");
 
-                
                 op.value = JSON.stringify({
                     cpf: r.hospede.cpf,
                     quarto: r.quartos.numeroQuarto,
@@ -59,6 +65,7 @@ hospedeSelect.addEventListener("change", async () => {
 
     } catch (err) {
         console.error("Erro ao carregar reservas:", err);
+        createToastNotification("Erro", "Erro de conexão ao carregar reservas!", "fa-solid fa-circle-xmark", "Erro");
     }
 });
 
@@ -79,7 +86,6 @@ function configurarFormulario() {
 
         const r = JSON.parse(reservaSelect.value);
 
-        
         const payload = {
             reservas: {
                 hospedes: { cpf: r.cpf },
@@ -91,7 +97,6 @@ function configurarFormulario() {
             valor: Number(document.getElementById("finance-valor").value)
         };
 
-
         try {
             const res = await fetch(`${config.API_URL}/pagamento`, {
                 method: "POST",
@@ -101,15 +106,32 @@ function configurarFormulario() {
 
             if (!res.ok) {
                 const errorBody = await res.json();
-                alert(`Erro ao registrar pagamento: ${errorBody.error || res.statusText}`);
+                createToastNotification(
+                    "Erro",
+                    errorBody.error || "Não foi possível registrar o pagamento!",
+                    "fa-solid fa-circle-xmark",
+                    "Erro!"
+                );
                 return;
             }
 
-            alert("Pagamento registrado com sucesso!");
+            createToastNotification(
+                "Sucesso",
+                "Pagamento registrado com sucesso!",
+                "fa-solid fa-circle-check",
+                "Sucesso"
+            );
+            setTimeout(() => window.location.reload(), 4000);
             document.getElementById("finance-dialog").close();
 
         } catch (err) {
             console.error("Erro ao enviar pagamento:", err);
+            createToastNotification(
+                "Erro",
+                "Erro de conexão ao registrar pagamento!",
+                "fa-solid fa-circle-xmark",
+                "Erro!"
+            );
         }
     });
 }

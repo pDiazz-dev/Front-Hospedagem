@@ -5,14 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const formReserva = document.getElementById("formReserva");
     formReserva.addEventListener("submit", criarReserva);
 
-
     const openReservaBtn = document.querySelector(".btnGreenAddHospInTheRoom");
     if (openReservaBtn) {
         openReservaBtn.addEventListener("click", () => {
             document.getElementById("dialogReserva").showModal();
         });
     }
-
 
     const closeBtn = document.getElementById("closeReserva");
     if (closeBtn) {
@@ -21,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-  
     const saveReserv = document.getElementById("btn-confirmReserva");
     if (saveReserv) {
         saveReserv.addEventListener("click", () => {
@@ -30,12 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-
-
 async function carregarHospedes() {
     try {
         const response = await fetch(`${config.API_URL}/hospede/hospedes-list`);
-        if (!response.ok) throw new Error("Erro ao carregar hóspedes");
+        if (!response.ok) throw new Error();
 
         const hospedes = await response.json();
         const select = document.getElementById("hospedeSelect");
@@ -50,17 +45,14 @@ async function carregarHospedes() {
         });
 
     } catch (error) {
-        console.error(error);
-        toast("Erro ao carregar hóspedes", "error");
+        toast("Erro ao carregar hóspedes!", "error");
     }
 }
-
-
 
 async function carregarQuartos() {
     try {
         const response = await fetch(`${config.API_URL}/quartos`);
-        if (!response.ok) throw new Error("Erro ao carregar quartos");
+        if (!response.ok) throw new Error();
 
         const quartos = await response.json();
         const select = document.getElementById("quartoSelect");
@@ -75,12 +67,9 @@ async function carregarQuartos() {
         });
 
     } catch (error) {
-        console.error(error);
-        toast("Erro ao carregar quartos", "error");
+        toast("Erro ao carregar quartos!", "error");
     }
 }
-
-
 
 async function criarReserva(e) {
     e.preventDefault();
@@ -111,22 +100,19 @@ async function criarReserva(e) {
             body: JSON.stringify(reservaDTO)
         });
 
-        if (!response.ok) throw new Error("Erro ao criar reserva");
+        if (!response.ok) throw new Error();
 
         toast("Reserva criada com sucesso!", "success");
 
         document.getElementById("dialogReserva").close();
         document.getElementById("formReserva").reset();
 
-        // RECARREGAR A PÁGINA
         setTimeout(() => location.reload(), 500);
 
     } catch (error) {
-        console.error(error);
-        toast("Erro ao criar reserva", "error");
+        toast("Erro ao criar reserva!", "error");
     }
 }
-
 
 function toast(msg, type = "info") {
     const div = document.querySelector(".toastNotification");
@@ -134,7 +120,19 @@ function toast(msg, type = "info") {
 
     const t = document.createElement("div");
     t.className = `toast ${type}`;
-    t.textContent = msg;
+
+    const icon = document.createElement("i");
+    icon.className =
+        type === "success" ? "fa-solid fa-circle-check" :
+        type === "error"   ? "fa-solid fa-circle-xmark" :
+                             "fa-solid fa-circle-info";
+
+    const text = document.createElement("span");
+    text.textContent = msg;
+
+    t.appendChild(icon);
+    t.appendChild(text);
+
     div.appendChild(t);
 
     setTimeout(() => t.remove(), 3000);

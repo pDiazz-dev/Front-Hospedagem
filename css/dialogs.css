@@ -1,7 +1,159 @@
+/* -------------------- Dialog Padrão com Animação -------------------- */
+
+/* ESTILO PRINCIPAL DO DIALOG */
+.dialHosp,
+.cancel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 420px;
+    max-width: 90%;
+    background-color: #552323;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 40px 35px;
+    box-shadow: 0px 2px 8px black;
+
+    opacity: 0;
+    transform: translate(-50%, -45%) scale(0.9);
+}
+
+/* Anima ao abrir */
+.dialHosp[open],
+.cancel[open] {
+    animation: dialogFadeIn 0.28s ease-out forwards;
+}
+
+/* Backdrop com blur e fade */
+.dialHosp::backdrop,
+.cancel::backdrop {
+    background-color: #00000060;
+    backdrop-filter: blur(3px);
+    animation: backdropFade 0.28s ease-out forwards;
+}
+
+/* -------------------- Conteúdo dos Forms -------------------- */
+
+.dialogElements form,
+.confirmDialogCancel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.dialogElements label {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #eee;
+}
+
+.dialogElements input[type="text"] {
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 6px;
+    border: 1px solid #00000050;
+    background-color: #fff;
+    color: #000;
+    font-size: 1em;
+}
+
+.personalNameQuantErr,
+.personalNameQuantErrQuantity,
+.personalNumbQuantErr,
+.personalCpfQuantErr {
+    display: none; /* você ativa no JS */
+    margin-top: 4px;
+    color: #ffbaba;
+    font-size: 0.85em;
+}
+
+/* -------------------- Botões -------------------- */
+
+#saveBtn,
+#outDialog,
+#confirmCancel,
+#denyCancel {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    margin-top: 22px;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+/* Adicionar */
+#saveBtn {
+    background-color: #ffffff;
+}
+#saveBtn:hover {
+    background-color: #F5E6C4;
+    transform: scale(1.03);
+    transition: 0.2s;
+}
+
+/* Cancelar (do primeiro dialog) */
+#outDialog {
+    background-color: white;
+}
+#outDialog:hover {
+    background-color: #a72424;
+    color: white;
+    transform: scale(1.03);
+    transition: 0.2s;
+}
+
+/* Botão SIM */
+#confirmCancel {
+    background-color: #ffffff;
+}
+#confirmCancel:hover {
+    background-color: #F5E6C4;
+    transform: scale(1.03);
+    transition: 0.2s;
+}
+
+/* Botão NÃO */
+#denyCancel {
+    background-color: white;
+}
+#denyCancel:hover {
+    background-color: #a72424;
+    color: white;
+    transform: scale(1.03);
+    transition: 0.2s;
+}
+
+/* -------------------- ANIMAÇÕES -------------------- */
+
+@keyframes dialogFadeIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -45%) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes backdropFade {
+    0% {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+    100% {
+        opacity: 1;
+        backdrop-filter: blur(3px);
+    }
+}
 
 
+/* -------------------- Dialog Edit Guest -------------------- */
 
-.dialHosp {
+.editGuest {
     position: fixed; 
     top: 50%;
     left: 50%;
@@ -11,173 +163,27 @@
     background-color: #552323;
     border: none;
     border-radius: 12px;
-    transition: ease-in 0.3s;
     box-shadow: 0px 2px 7px black;
+
+   
+    opacity: 0;
+    transform: translate(-50%, -45%) scale(0.9);
 }
 
-.dialHosp::backdrop{
-    backdrop-filter: blur(3px);
+
+.editGuest[open] {
+    animation: dialogFadeIn 0.28s ease-out forwards;
+}
+
+
+.editGuest::backdrop {
     background-color: #302f2f69;
-
-}
-
-.dialogElements {
-    display: flex;
-    justify-content: center;
-    width: 100%; 
-    padding: 70px;
-    color: white; 
-}
-
-.dialogElements form {
-    display: flex;
-    flex-direction: column;
-    width: 100%; 
-}
-
-.dialogElements label {
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 0.9em;
-    color: #ccc;
-}
-
-.dialogElements input[type="text"] {
-    padding: 10px 15px;
-    border: 1px solid #00000052;
-    border-radius: 6px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    font-size: 1em;
-    transition: border-color 0.3s;
-}
-
-
-.dialogElements input[type="button"] {
-    padding: 10px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-  
-}
-
-#saveBtn{
-    background-color: #ffffff;
-    margin-bottom:px ;
-      margin-top: 40px;
-}
-
-#saveBtn:hover{
-    background-color: #F5E6C4;
-    transition: ease-out 0.2s;
-    transform: scale(1.03);
-}
-
-#outDialog{
-    background-color: rgb(255, 255, 255);
-      margin-top: 20px;
-}
-
-#outDialog:hover{
-    background-color: #a72424;
-    transition: ease-out 0.2s;
-    color: white;
-    transform: scale(1.03);
-}
-
-/*-------------------- Dialog de Confirmação de Cancelamento-------------------- */
-
-#confirmClose {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 350px;
-    max-width: 90vw;
-    background-color: #331515;
-    border: none;
-    border-radius: 12px;
-    box-shadow: 0px 2px 7px black;
-    padding: 30px 20px;
-    text-align: center;
-    color: white;
-}
-#confirmClose::backdrop {
     backdrop-filter: blur(3px);
-    background-color: #302f2f69;
-}
-#confirmClose p {
-    font-size: 1.1em;
-    margin-bottom: 25px;
-}
-#confirmCancel,
-#denyCancel {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    font-size: 0.95em;
-    margin: 0 10px;
-    transition: all 0.2s ease-in-out;
-}
-#confirmCancel {
-    background-color: #ffffff;
-    color: #000;
-}
-#confirmCancel:hover {
-    background-color: #a72424;
-    color: white;
-    transform: scale(1.05);
-}
-#denyCancel {
-    background-color: #ffffff;
-    color: #000;
-}
-#denyCancel:hover {
-    background-color: #F5E6C4;
-    transform: scale(1.05);
+    animation: backdropFade 0.28s ease-out forwards;
 }
 
 
-
-
- /* -------------------- Mesangens de Erro do input-------------------- */
-.personalNumbQuantErr,
-.personalNameQuantErrQuantity,
-.personalNameQuantErr,
-.personalCpfQuantErr{
-    display: none;
-    color: #ffffff;
-    text-shadow: #cf1f1f 0px 1px 2px;
-    padding: 5px 10px;
-    font-size: 14px;
-}
-
-/*-------------------- Dialog Editar Hóspede-------------------- */
-
-.editGuest{
-   position: fixed; 
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    max-width: 90vw;
-    background-color: #552323;
-    border: none;
-    border-radius: 12px;
-    transition: ease-in 0.3s;
-    box-shadow: 0px 2px 7px black;
-}
-
-
-.editGuest::backdrop{
-    backdrop-filter: blur(3px);
-    background-color: #302f2f69;
-}
-
-.editGuestDialog{
+.editGuestDialog {
     display: flex;
     justify-content: center;
     width: 100%; 
@@ -209,64 +215,160 @@
     transition: border-color 0.3s;
 }
 
-.editGuestDialog input[type="button"] {
+
+#saveEditBtn,
+#cancelEditBtn {
     padding: 10px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-weight: bold;
-  
 }
-#saveEditBtn{
+
+#saveEditBtn {
     background-color: #ffffff;
-    margin-bottom:px ;
-      margin-top: 40px;
+    margin-top: 40px;
 }
 
-#saveEditBtn:hover{
+#saveEditBtn:hover {
     background-color: #F5E6C4;
-    transition: ease-out 0.2s;
+    transition: 0.2s;
     transform: scale(1.03);
 }
 
-#cancelEditBtn{
+#cancelEditBtn {
     background-color: rgb(255, 255, 255);
-      margin-top: 20px;
-    }
-#cancelEditBtn:hover{
+    margin-top: 20px;
+}
+
+#cancelEditBtn:hover {
     background-color: #a72424;
-    transition: ease-out 0.2s;
     color: white;
+    transition: 0.2s;
     transform: scale(1.03);
 }
+
+
+@keyframes dialogFadeIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -45%) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes backdropFade {
+    0% {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+    100% {
+        opacity: 1;
+        backdrop-filter: blur(3px);
+    }
+}
+
+
+
 
 
     /*-------------------- Dialog de Deleção de Hóspede-------------------- */
-    .deleteGuest{
-        position: fixed; 
+    .deleteGuest {
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
-    max-width: 90vw;
+    width: 360px;
+    max-width: 92vw;
     background-color: #552323;
+    color: #fff;
     border: none;
     border-radius: 12px;
-    transition: ease-in 0.3s;
-    box-shadow: 0px 2px 7px black;
-    }
+    padding: 28px 22px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    z-index: 2200;
+    animation: dialogFadeIn 220ms ease-out;
+}
 
-    .deleteGuest::backdrop{
-        backdrop-filter: blur(3px);
-        background-color: #302f2f69;
-    }
+.deleteGuest::backdrop {
+    background-color: rgba(0, 0, 0, 0.55);
+}
 
-    .confirmDialogDelete{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        width: 100%; 
-        padding: 70px;
-        color: white;
-        text-align: center;
+.confirmDialogDelete {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+    text-align: center;
+}
+
+.confirmDialogDelete p {
+    font-size: 1.03rem;
+    line-height: 1.4;
+    margin: 0;
+    color: #fff;
+}
+
+
+.confirmProssesForDeleteHopede,
+.cancelDeleteHospede {
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform .14s ease, background-color .14s ease, color .14s ease;
+}
+
+
+.confirmProssesForDeleteHopede {
+    background-color: #ffffff;
+    color: #000;
+}
+
+.confirmProssesForDeleteHopede:hover {
+    background-color: #f5e6c4;
+    transform: translateY(-2px) scale(1.01);
+}
+
+
+.cancelDeleteHospede {
+    background-color: #ffffff;
+    color: #000;
+}
+
+.cancelDeleteHospede:hover {
+    background-color: #a72424;
+    color: #fff;
+    transform: translateY(-2px) scale(1.01);
+}
+
+/* Small screens tweak */
+@media (max-width: 420px) {
+    .deleteGuest {
+        width: 92vw;
+        padding: 20px;
     }
+    .confirmProssesForDeleteHopede,
+    .cancelDeleteHospede {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+}
+
+/* Entry animation */
+@keyframes dialogFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -45%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
