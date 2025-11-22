@@ -62,7 +62,7 @@ async function carregarQuartos() {
         quartos.forEach(q => {
             const option = document.createElement("option");
             option.value = q.numeroQuarto;
-            option.textContent = `${q.tipoQuarto} – Nº ${q.numeroQuarto} – R$${q.valorQuarto}`;
+            option.textContent = `${q.tipoQuarto} – Nº ${q.numeroQuarto}`;
             select.appendChild(option);
         });
 
