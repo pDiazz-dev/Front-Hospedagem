@@ -1,4 +1,6 @@
 let deletReservRoomNumber = null;
+let deletReservCpf = null;
+let deletReservCheckin = null;
 
 const tableBody = document.querySelector(".reservations-table-body");
 const dialogDeleteReserv = document.querySelector(".deleteReserv");
@@ -7,7 +9,9 @@ const deleteConfirmBtn = document.querySelector(".confirmDeleteReserv");
 
 tableBody.addEventListener("click", (e) => {
     if (e.target.classList.contains("trashDelReserv")) {
-        deletReservRoomNumber = e.target.getAttribute("data-set");
+       deletReservCheckin = e.target.getAttribute("data-checkin");
+       deletReservCpf = e.target.getAttribute("data-cpf");
+       deletReservRoomNumber = e.target.getAttribute("data-numero-quarto");
         dialogDeleteReserv.showModal();
     }
 });
@@ -19,11 +23,10 @@ deleteCancelBtn.addEventListener("click", () => {
 deleteConfirmBtn.addEventListener("click", async (e) => {
     e.preventDefault();
 
-    if (!deletReservRoomNumber) return;
-
+    
     try {
         const response = await fetch(
-            `${config.API_URL}/reservas/${deletReservRoomNumber}`,
+            `${config.API_URL}/reservas/${deletReservRoomNumber}/${deletReservCpf}/${deletReservCheckin}`,
             {
                 method: "DELETE",
                 headers: {

@@ -35,6 +35,7 @@ async function listarPagamentos() {
                 <td>${p.data}</td>
                 <td><strong>${nomeHospede}</strong></td>
                 <td>${valor}</td>
+                <td>${p.metodoPagamento}</td>
                 <td class="text-center">
                     <button class="btn-delete" onclick="deletarPagamento('${p.id}')">
                         <i class="fas fa-trash"></i>
